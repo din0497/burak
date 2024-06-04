@@ -6,8 +6,8 @@
   "scripts": {
     "start": "ts-node src/server.ts",
     "start:dev": "nodemon --exec ts-node src/server.ts",
+    "train": "nodemon --exec ts-node src/train.ts",
     "build": "tsc",
-    "train": "nodemon train.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Din",
