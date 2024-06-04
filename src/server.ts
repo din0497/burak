@@ -1,17 +1,13 @@
-/* console.log("EXUCUTED!");
-
-import moment from 'moment'
-
-const current_time = moment().format("YYYY MM DD")
-
-const preson: string = "DIN";
-const age: number = 27;
-
-console.log(current_time); */
-
 
 // Architectual pattern: MVC, DI, MVP
 
 
 // Design patterns: Middleware, Decorator
+
+import dotenv from "dotenv";
+dotenv.config()
+
+console.log("PORT", process.env.PORT);
+
+
 

@@ -7,7 +7,7 @@ MASALAN: getHighestIndex([5, 21, 12, 21, 8]) return qiladi 1 sonini.
 
 */
 
-const getHighestIndex = (arr) => {
+const getHighestIndex = (arr: number[]) => {
   const maxInt = Math.max(...arr);
   return arr.indexOf(maxInt);
 };
