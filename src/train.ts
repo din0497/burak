@@ -1,17 +1,18 @@
 /* 
-G-TASK: 
+H-TASK: 
 
-Shunday function tuzingki unga integerlardan iborat array pass bolsin va function bizga osha arrayning eng katta qiymatiga tegishli birinchi indexni qaytarsin.
-MASALAN: getHighestIndex([5, 21, 12, 21, 8]) return qiladi 1 sonini.
+shunday function tuzing, u integerlardan iborat arrayni argument sifatida qabul qilib, faqat positive qiymatlarni olib string holatda return qilsin
+MASALAN: getPositive([1, -4, 2]) return qiladi "12"
+
 
 
 */
 
-const getHighestIndex = (arr: number[]): number => {
-  const maxInt = Math.max(...arr);
-  return arr.indexOf(maxInt);
-};
+const getPositive = (arr: number[]): string => {
+  return arr.filter(ele => ele >= 0).join('')
+}
 
-const result = getHighestIndex([5, 21, 12, 21, 35]);
+const result = getPositive([1, -4, 2])
 
 console.log(result);
+
