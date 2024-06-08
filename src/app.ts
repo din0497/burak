@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path"
 import router from "./router";
+import routerAdmin from "./routerAdmin";
 
 
 /* 1-ENTRANCE */
@@ -24,6 +25,7 @@ app.set('view engine', 'ejs')
 
 
 
-app.use('/', router)
+app.use("/admin", routerAdmin)   //SSR: EJS
+app.use('/', router)            // SPA: REACT
 
 export default app
