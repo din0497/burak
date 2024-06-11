@@ -19,7 +19,7 @@ const getDigits = (str: string): string => {
 }
 
 const result = getDigits('m14i1t')
-
+ 
 console.log(result);
 
 
