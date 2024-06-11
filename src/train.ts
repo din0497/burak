@@ -22,3 +22,17 @@ const result = getDigits('m14i1t')
 
 console.log(result);
 
+
+
+
+/* Project Standards
+ - Logging standards
+ - Naming standards:
+      function, method, variable => CAMEL
+      class => PASCAL
+      folder => KEBAB
+      css => snake
+  - ERROR handling
+    
+
+*/

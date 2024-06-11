@@ -8,6 +8,8 @@ MemberService
 const restaurantController: T = {}
 restaurantController.goHome = (req: Request, res: Response) => {
     try {
+
+        console.log("Home Page")
         res.send("Home Page")
 
     } catch (err) {
@@ -18,6 +20,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 
 restaurantController.getLogin = (req: Request, res: Response) => {
     try {
+        console.log("Login Page")
         res.send("Login Page")
 
     } catch (err) {
@@ -27,6 +30,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 };
 restaurantController.getSignup = (req: Request, res: Response) => {
     try {
+        console.log("Signup Page")
         res.send("Signup Page")
 
     } catch (err) {
