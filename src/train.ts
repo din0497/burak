@@ -1,27 +1,34 @@
 /* 
+  I-TASK:
 
-H2-TASK: 
-
-Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
-MASALAN: getDigits("m14i1t") return qiladi "141"
-
-
-
-
+Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
+MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
 
 */
 
-const getDigits = (str: string): string => {
-  return str.split('')
-    .filter(ele => !isNaN(Number(ele)))
-    .join('')
+const majorityElement = (arr: number[]): string => {
+  const uniqueNums = new Set(arr);
+  const collection: object[] = [];
+  let maxOccurance: number = 0;
+  let index: number = 0;
+  for (const num of uniqueNums) {
+    const occurance: number = arr.filter((ele) => ele == num).length;
+    collection.push({ [num]: occurance });
+  };
 
-}
+  for (let i = 0; i < collection.length; i++) {
+    if (Object.values(collection[i])[0] > maxOccurance) {
+      maxOccurance = Object.values(collection[i])[0];
+      index = i;
+    }
+  }
 
-const result = getDigits('m14i1t')
- 
+  return Object.keys(collection[index])[0];
+};
+
+const result = majorityElement([1, 2, 3, 4, 5, 4, 3, 4]);
+
 console.log(result);
-
 
 
 
@@ -33,6 +40,6 @@ console.log(result);
       folder => KEBAB
       css => snake
   - ERROR handling
-    
+  [2,3,4,5,5,6,4,5]  
 
 */
