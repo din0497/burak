@@ -9,12 +9,15 @@ MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
 const majorityElement = (arr: number[]): string => {
   const uniqueNums = new Set(arr);
   const collection: object[] = [];
-  let maxOccurance: number = 0;
-  let index: number = 0;
+
   for (const num of uniqueNums) {
     const occurance: number = arr.filter((ele) => ele == num).length;
     collection.push({ [num]: occurance });
   };
+
+  
+  let maxOccurance: number = 0;
+  let index: number = 0;
 
   for (let i = 0; i < collection.length; i++) {
     if (Object.values(collection[i])[0] > maxOccurance) {
