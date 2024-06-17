@@ -1,36 +1,28 @@
 /* 
-  I-TASK:
+J-TASK: 
 
-Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
-MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
+Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
+MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
 
 */
 
-const majorityElement = (arr: number[]): string => {
-  const uniqueNums = new Set(arr);
-  const collection: object[] = [];
-
-  for (const num of uniqueNums) {
-    const occurance: number = arr.filter((ele) => ele == num).length;
-    collection.push({ [num]: occurance });
-  };
-
-  
-  let maxOccurance: number = 0;
-  let index: number = 0;
-
-  for (let i = 0; i < collection.length; i++) {
-    if (Object.values(collection[i])[0] > maxOccurance) {
-      maxOccurance = Object.values(collection[i])[0];
-      index = i;
+const findLongestWord = (text: string): string => {
+  const arr: string[] = text.split(" ");
+  const data = {
+    maxLength: 0,
+    longest: ''
+  }
+  for (const ele of arr) {
+    if (ele.length > data.maxLength) {
+      data.maxLength = ele.length;
+      data.longest = ele
     }
   }
+  return data.longest
 
-  return Object.keys(collection[index])[0];
-};
+}
 
-const result = majorityElement([1, 2, 3, 4, 5, 4, 3, 4]);
-
+const result = findLongestWord("I come from Uzbekistan")
 console.log(result);
 
 
