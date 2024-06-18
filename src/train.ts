@@ -7,19 +7,10 @@ MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
 */
 
 const findLongestWord = (text: string): string => {
-  const arr: string[] = text.split(" ");
-  const data = {
-    maxLength: 0,
-    longest: ''
-  }
-  for (const ele of arr) {
-    if (ele.length > data.maxLength) {
-      data.maxLength = ele.length;
-      data.longest = ele
-    }
-  }
-  return data.longest
-
+  const arr: string[] = text.split(" ").sort((a,b)=> {
+    return b.length - a.length 
+  });
+ return arr[0]
 }
 
 const result = findLongestWord("I come from Uzbekistan")
