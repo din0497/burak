@@ -19,9 +19,10 @@ routerAdmin
     .get("/signup", restaurantController.getSignup)
     .post('/signup', restaurantController.processSignup)
 
-    routerAdmin.get('/check-me', restaurantController.checkoutSession)
+routerAdmin.get("/logout", restaurantController.logout)
+routerAdmin.get('/check-me', restaurantController.checkoutSession)
 
-    /* Product */
-    /* User */
+/* Product */
+/* User */
 
 export default routerAdmin

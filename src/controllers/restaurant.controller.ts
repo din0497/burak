@@ -16,8 +16,9 @@ restaurantController.goHome = (req: Request, res: Response) => {
 
         // send | json | redirect | end | render
 
-    } catch (err) {
+    } catch (err) { 
         console.log("Error, goHome", err);
+        res.redirect('/admin')
 
     }
 };
@@ -29,6 +30,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 
     } catch (err) {
         console.log("Error, Login", err);
+        res.redirect('/admin')
 
     }
 };
@@ -40,6 +42,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
 
     } catch (err) {
         console.log("Error, Signup", err);
+        res.redirect('/admin')
 
     }
 };
@@ -64,7 +67,8 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
 
     } catch (err) {
         console.log("Error, ProcessLogin", err);
-        res.send(err)
+        const message = err instanceof Error ? err.message : Message.SOMETHING_WENT_WRONG;
+        res.send(`<script>alert(${message}); window.location.replace('admin/signup')</script>`)
 
     }
 };
@@ -83,25 +87,46 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
         });
 
     } catch (err) {
-        res.send(err)
         console.log("Error, ProcessLogin", err);
+        const message = err instanceof Error ? err.message : Message.SOMETHING_WENT_WRONG;
+        res.send(`<script>alert(${message}); window.location.replace('admin/signup')</script>`)
 
     }
 
 };
+restaurantController.logout = async (req: AdminRequest, res: Response) => {
+    try {
+        console.log("logout")
+        req.session.destroy(function() {
+            res.redirect('/admin')
+        })
+
+    } catch (err) {
+        console.log("Error, ProcessLogin", err);
+        res.redirect('/admin')
+
+    }
+
+};
+
+
 restaurantController.checkoutSession = async (
     req: AdminRequest, 
     res: Response) => {
     try {
         console.log("Check")
-        if (req.session?.member) res.send(`Hi ${req.session.member.memberNick}`)
-        else res.send(Message.NOT_AUTHENTICTED)
+        if (req.session?.member) res.send(`<script>alert(${req.session.member.memberNick})</script>`)
+
+        else res.send(`<script>alert(${Message.NOT_AUTHENTICTED})</script>`)
+
     } catch (err) {
         console.log("Error, Check Auth", err);
         res.send(err)
 
     }
 };
+
+
 
 
 export default restaurantController
