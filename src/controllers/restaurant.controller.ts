@@ -3,6 +3,7 @@ import { T } from "../libs/types/common";
 import MemberService from '../models/Members.service';
 import { AdminRequest, LoginInput, MemberInput } from '../libs/types/member';
 import { MemberType } from '../libs/types/enums/member.enum';
+import { Message } from '../libs/Errors';
 
 
 const memberService = new MemberService();
@@ -77,17 +78,30 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
 
         req.session.member = result;
         req.session.save(() => {
-            res.send(result)
+        
+            res.send(result);
+        });
 
-        })
-
-
-        res.send(result)
     } catch (err) {
         res.send(err)
         console.log("Error, ProcessLogin", err);
 
     }
+
 };
+restaurantController.checkoutSession = async (
+    req: AdminRequest, 
+    res: Response) => {
+    try {
+        console.log("Check")
+        if (req.session?.member) res.send(`Hi ${req.session.member.memberNick}`)
+        else res.send(Message.NOT_AUTHENTICTED)
+    } catch (err) {
+        console.log("Error, Check Auth", err);
+        res.send(err)
+
+    }
+};
+
 
 export default restaurantController

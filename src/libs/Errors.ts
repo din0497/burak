@@ -17,7 +17,8 @@ export enum HttpCode {
 
     NO_MEMBER_NICK = "No member with that member nick",
     USED_NICK_PHONE = "You are inserting already used nick or phone",
-    WRONG_PASSWORD = "Wrong password entered, please try again"
+    WRONG_PASSWORD = "Wrong password entered, please try again",
+    NOT_AUTHENTICTED = "You are not authenticated, please Login first"
    }
    
    class Errors extends Error {
