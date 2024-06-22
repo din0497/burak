@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { T } from "../libs/types/common";
 import MemberService from '../models/Members.service';
 import { AdminRequest, LoginInput, MemberInput } from '../libs/types/member';
@@ -16,7 +16,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 
         // send | json | redirect | end | render
 
-    } catch (err) { 
+    } catch (err) {
         console.log("Error, goHome", err);
         res.redirect('/admin')
 
@@ -82,7 +82,7 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
 
         req.session.member = result;
         req.session.save(() => {
-        
+
             res.send(result);
         });
 
@@ -97,7 +97,7 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
 restaurantController.logout = async (req: AdminRequest, res: Response) => {
     try {
         console.log("logout")
-        req.session.destroy(function() {
+        req.session.destroy(function () {
             res.redirect('/admin')
         })
 
@@ -111,7 +111,7 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
 
 
 restaurantController.checkoutSession = async (
-    req: AdminRequest, 
+    req: AdminRequest,
     res: Response) => {
     try {
         console.log("Check")
@@ -125,6 +125,23 @@ restaurantController.checkoutSession = async (
 
     }
 };
+
+restaurantController.verifyRestaurant = (
+    req: AdminRequest,
+    res: Response,
+    next: NextFunction
+) => {
+
+    if (req.session?.member?.memberType === MemberType.RESTAURANT) {
+        req.member = req.session.member;
+        next();
+    } else {
+        const message = Message.NOT_AUTHENTICTED
+        res.send(`<script>alert('${message}'); window.location.replace('/admin/login')</script>`)
+
+    }
+
+}
 
 
 
