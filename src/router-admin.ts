@@ -34,7 +34,7 @@ routerAdmin.get("/product/all",
 
 routerAdmin.post('/product/create',
     restaurantController.verifyRestaurant,
-    makeUploader('products').single('productImage'),
+    makeUploader('products').array('productImages', 5),
     productController.createNewProduct);
 
 routerAdmin.post('/product/:id',
@@ -43,4 +43,4 @@ routerAdmin.post('/product/:id',
 
 /* User */
 
-export default routerAdmin
+export default routerAdmin 
