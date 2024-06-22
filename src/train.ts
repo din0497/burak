@@ -1,19 +1,20 @@
 /* 
-K-TASK: 
+L-TASK: 
 
-Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
-MASALAN: countVowels("string") return 1;
-
+Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
 
 */
-const countVowels = (input: string): any => {
-  const vowels: string[] | null = input.match(/[aeiouAEIOU]/g);
+const reverseSentence = (str: string): string => {
+  const arr = str.split(' ')
+  
+ 
 
-  return vowels !== null ? vowels.length : "There is no any vowels!"
+  return  arr.map(ele => ele.split('').reverse().join('')).join(' ')
 }
 
 
-const result = countVowels("string")
+const result = reverseSentence("we like coding")
 console.log(result);
 
 
