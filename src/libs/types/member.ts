@@ -27,7 +27,7 @@ export interface MemberInput {
     memberPassword: string,
     memberAddress?: string,
     memeberDesc?: string,
-    memeberImage?: string,
+    memberImage?: string,
     memeberPoints?: string,
 }
 
