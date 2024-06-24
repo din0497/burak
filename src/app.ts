@@ -11,10 +11,6 @@ import { T } from "./libs/types/common";
 
 const MongoDBStore = ConnectMongoDB(session)
 
-const store = new MongoDBStore({
-    uri: String(process.env.MONGO_URL),
-    collection: 'sessions'
-})
 
 /* 1-ENTRANCE */
 
@@ -27,6 +23,10 @@ app.use(express.json())
 app.use(morgan(MORGAN_FORMAT))
 
 /* 2-SESSIONS*/
+const store = new MongoDBStore({
+    uri: String(process.env.MONGO_URL),
+    collection: 'sessions'
+})
 app.use(
     session({
         secret: String(process.env.SESSION_SECRET),
