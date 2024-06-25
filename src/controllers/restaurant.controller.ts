@@ -47,6 +47,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
     }
 };
 
+const personinfo = {}
 
 restaurantController.processSignup = async (req: AdminRequest, res: Response) => {
     try {
@@ -109,6 +110,32 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
     } catch (err) {
         console.log("Error, ProcessLogin", err);
         res.redirect('/admin')
+
+    }
+
+};
+restaurantController.getUsers = async (req: AdminRequest, res: Response) => {
+    try {
+        console.log("getUsers")
+        const result = await memberService.getUsers();
+        console.log(result);
+        
+
+        res.render('user', { users: result })
+
+    } catch (err) {
+        console.log("Error, ProcessLogin", err);
+        res.redirect('/admin')
+
+    }
+
+};
+restaurantController.updateChosenUser = async (req: AdminRequest, res: Response) => {
+    try {
+        console.log("updateChosenUsers")
+
+    } catch (err) {
+        console.log("Error, ProcessLogin", err);
 
     }
 

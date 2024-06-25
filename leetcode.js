@@ -124,7 +124,7 @@ Constraints:
 num consists of only 6 and 9 digits.
 */
 
-var maximum69Number = function (number) {
+/* var maximum69Number = function (number) {
   let digits = [];
 
   while (number != 0) {
@@ -145,9 +145,39 @@ var maximum69Number = function (number) {
   return ans;
 };
 
-console.log(maximum69Number(99966));
+console.log(maximum69Number(99966)); */
 
 /* 
 900 => 9 ** digits.length - 1 - digits[i];
 90 => 9 ** digits.length - 1 
 */
+
+
+
+
+
+var strStr = function (haystack, needle) {
+  if (!needle.length) return 0;
+
+  // Loop through the haystack's letters
+  for (let i = 0; i <= haystack.length - needle.length; i++) {
+      // Check if the current letter matches the start of the needle
+      if (haystack[i] === needle[0]) {
+          // Loop through the needle
+          for (let j = 0; ; j++) {
+              // Reached the end of the needle (and thus fully found it at i)
+              if (j == needle.length) {
+                  return i;
+              }
+              // Letters not matched (needle not found at i)
+              else if (haystack[i + j] !== needle[j]) {
+                  break;
+              }
+          }
+      }
+  }
+  return -1;
+};
+
+console.log(strStr('sadbutsad', 'sad'));
+
