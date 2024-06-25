@@ -119,7 +119,7 @@ restaurantController.getUsers = async (req: AdminRequest, res: Response) => {
         console.log("getUsers")
         const result = await memberService.getUsers();
         console.log(result);
-        
+
 
         res.render('user', { users: result })
 
@@ -132,11 +132,13 @@ restaurantController.getUsers = async (req: AdminRequest, res: Response) => {
 };
 restaurantController.updateChosenUser = async (req: AdminRequest, res: Response) => {
     try {
-        console.log("updateChosenUsers")
-
+        console.log("updateChosenUser")
+        const result = await memberService.updateChosenUser(req.body);
+        res.status(HttpCode.OK).json({ data: result })
     } catch (err) {
         console.log("Error, ProcessLogin", err);
-
+        if (err instanceof Errors) res.status(err.code).json(err)
+        else res.status(Errors.standard.code).json(Errors.standard)
     }
 
 };

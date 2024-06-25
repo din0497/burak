@@ -23,7 +23,6 @@ routerAdmin
         makeUploader('member').single('memberImage'),
         restaurantController.processSignup)
 
-routerAdmin.get("/users", restaurantController.getUsers)
 routerAdmin.get("/logout", restaurantController.logout)
 
 
@@ -46,6 +45,9 @@ routerAdmin.post('/product/:id',
 
 /* User */
 routerAdmin.get('user', restaurantController.verifyRestaurant, restaurantController.getUsers)
-
+routerAdmin.post('/user/edit',
+    restaurantController.verifyRestaurant,
+    restaurantController.updateChosenUser
+)
 
 export default routerAdmin 
