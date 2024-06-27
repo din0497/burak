@@ -1,20 +1,33 @@
 /* 
-M-TASK: 
+N-TASK: 
 
-Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
-MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
+Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
+MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
 
 
 */
-/* const getSquareNumbers = (arr: number[]): object[] => {
-  return arr.map(ele => {
-    return { number: ele, square: ele * ele }
-  });
+
+const palindromCheck = (str: string): boolean => {
+
+  let i = 0;
+  let j = str.length - 1;
+
+  while (i <= j) {
+  
+    if (str[i] != str[j]) {
+      return false
+    }
+    i++
+    j--
+  }
+
+  return true
 }
 
 
-const result = getSquareNumbers([1, 2, 3])
-console.log(result); */
+
+const result = palindromCheck('dadad')
+console.log(result);
 
 
 
@@ -29,28 +42,3 @@ console.log(result); */
   [2,3,4,5,5,6,4,5]  
 
 */
-
-interface MemberInput {
-  memberNick: string;
-  memberPhone: string;
-  memberPassword:string;
-  memberImage:string;
-  age: number;
-  memberType?: string;
-
-}
-
-
-const body = {
-  memberNick: "max",
-  memberPhone: '010',
-  memberPassword:'skjdfjsldf', 
-  memberImage:"uplods/",
-  age: 15,
-}
-
-const newMember: MemberInput = body;
-
-newMember.memberType = 'Restaurant'
-
-console.log(newMember);

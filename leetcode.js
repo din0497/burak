@@ -152,11 +152,7 @@ console.log(maximum69Number(99966)); */
 90 => 9 ** digits.length - 1 
 */
 
-
-
-
-
-var strStr = function (haystack, needle) {
+/* var strStr = function (haystack, needle) {
   if (!needle.length) return 0;
 
   // Loop through the haystack's letters
@@ -179,5 +175,20 @@ var strStr = function (haystack, needle) {
   return -1;
 };
 
-console.log(strStr('sadbutsad', 'sad'));
+console.log(strStr('sadbutsad', 'sad')); */
 
+const moveZeroes = function (nums) {
+  let count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      count++;
+      continue;
+    }
+    console.log("iterations", i, "count:", count);
+
+    [nums[i- count], nums[i ]] = [nums[i], nums[i - count]];
+  }
+  return nums;
+};
+
+console.log(moveZeroes([1,3,0,4,0,2]));
