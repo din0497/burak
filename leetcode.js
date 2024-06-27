@@ -177,7 +177,7 @@ console.log(maximum69Number(99966)); */
 
 console.log(strStr('sadbutsad', 'sad')); */
 
-const moveZeroes = function (nums) {
+/* const moveZeroes = function (nums) {
   let count = 0;
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 0) {
@@ -192,3 +192,6 @@ const moveZeroes = function (nums) {
 };
 
 console.log(moveZeroes([1,3,0,4,0,2]));
+ */
+
+

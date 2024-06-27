@@ -1,1 +1,1 @@
-console.log('This is browser!');
+console.log("Basic frontend javascript file");
