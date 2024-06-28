@@ -121,7 +121,7 @@ restaurantController.getUsers = async (req: AdminRequest, res: Response) => {
         console.log(result);
 
 
-        res.render('user', { users: result })
+        res.render('users', { users: result })
 
     } catch (err) {
         console.log("Error, ProcessLogin", err);
