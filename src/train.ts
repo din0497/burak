@@ -33,4 +33,8 @@ console.log(result);
   - ERROR handling
   [2,3,4,5,5,6,4,5]  
 
+  ---validations
+        frontend
+        backend
+        database
 */
