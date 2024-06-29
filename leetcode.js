@@ -194,4 +194,16 @@ console.log(strStr('sadbutsad', 'sad')); */
 console.log(moveZeroes([1,3,0,4,0,2]));
  */
 
+const isSubsequencr = (str, t) => {
+  let sub = 0;
 
+  for (const char of t) {
+    if (char === str[sub]) {
+      sub++;
+    }
+  }
+  return sub == str.length;
+};
+
+
+console.log(isSubsequencr("abc", 'ccacbc'));
