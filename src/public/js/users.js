@@ -9,7 +9,6 @@ $(
       .post(`/admin/user/edit`, {
         _id: id,
         memberStatus: status,
-        memberNick: "Usmon",
       })
       .then((result) => {
         console.log(result);
