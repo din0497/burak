@@ -79,6 +79,7 @@
           </div>
         </div>
         <form
+          onsubmit="return validateForm()"
           action="/admin/product/create"
           method="POST"
           class="dish-container"
@@ -172,7 +173,8 @@
                   id="file"
                   name="productImages"
                   class="image-one"
-                  required
+                  onchange="previewFileHendler(this, 1)"
+          
                 />
               </div>
               <div class="upload-img-box">
@@ -182,6 +184,7 @@
                   id="file"
                   name="productImages"
                   class="image-two"
+                  onchange="previewFileHendler(this, 2)"
                 />
               </div>
               <div class="upload-img-box">
@@ -191,6 +194,7 @@
                   id="file"
                   name="productImages"
                   class="image-three"
+                  onchange="previewFileHendler(this, 3)"
                 />
               </div>
               <div class="upload-img-box">
@@ -200,6 +204,7 @@
                   id="file"
                   name="productImages"
                   class="image-four"
+                  onchange="previewFileHendler(this, 4)"
                 />
               </div>
               <div class="upload-img-box">
@@ -209,6 +214,7 @@
                   id="file"
                   name="productImages"
                   class="image-five"
+                  onchange="previewFileHendler(this, 5)"
                 />
               </div>
               <input name="restaurantIid" class="restaurant-id" hidden />
@@ -216,7 +222,7 @@
           </div>
 
           <div class="operation-buttons">
-            <button class="btn btn-danger" id="cancel-btn">Cancel</button>
+            <button type="button" class="btn btn-danger" id="cancel-btn">Cancel</button>
             <button type="submit" class="btn btn-primary" id="create-btn">
               Create
             </button>
