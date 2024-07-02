@@ -5,9 +5,9 @@ Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib
 MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 */
 
+type Arr = [string, string | number]
 
-
-const objectToArray = (arr: object): any [] => {
+const objectToArray = (arr: object): Arr [] => {
 
   return Object.entries(arr)
 }
