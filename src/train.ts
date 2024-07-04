@@ -1,18 +1,21 @@
 /* 
-P-TASK:
+Q-TASK:
 
-Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
-MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
 */
+type ob = { [key: string]: any };
 
-type Arr = [string, string | number]
-
-const objectToArray = (arr: object): Arr [] => {
-
-  return Object.entries(arr)
+const hasProperty = (obj: ob, str: string): boolean => {
+  for (const key in obj) {
+    if (key === str) {
+      return true
+    }
+  }
+  return false
 }
 
-console.log(objectToArray({a: 10, b: 20}));
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
 
 
 
