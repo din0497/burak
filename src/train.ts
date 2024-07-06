@@ -1,21 +1,15 @@
 /* 
-Q-TASK:
+R-TASK:
 
-Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
-MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
+Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
+MASALAN: calculate("1+3") return 4;
 */
-type ob = { [key: string]: any };
 
-const hasProperty = (obj: ob, str: string): boolean => {
-  for (const key in obj) {
-    if (key === str) {
-      return true
-    }
-  }
-  return false
+const calculate = (str: string): number => {
+  return + eval(str)
 }
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+console.log(calculate('1+2'));
 
 
 
