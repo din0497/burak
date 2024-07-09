@@ -6,7 +6,7 @@ MASALAN: missingNumber([3, 0, 1]) return 2
 */
 
 
-function result(arr: number[]): number[] {
+const missingNumber = (arr: number[]): number[] => {
 
   const min = Math.min(...arr);
   const max = Math.max(...arr);
@@ -31,7 +31,7 @@ function result(arr: number[]): number[] {
   return result;
 }
 
-console.log(result([10, 3]));
+console.log(missingNumber([3, 0, 1]));
 
 
 
