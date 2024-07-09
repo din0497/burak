@@ -1,15 +1,40 @@
 /* 
-R-TASK:
+S-TASK:
 
-Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
-MASALAN: calculate("1+3") return 4;
+Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+MASALAN: missingNumber([3, 0, 1]) return 2
 */
 
-const calculate = (str: string): number => {
-  return + eval(str)
+
+function result(arr: number[]): number[] {
+
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+
+  const allNums = new Set<number>();
+  for (let i = min; i <= max; i++) {
+    allNums.add(i);
+  }
+
+
+
+  const nums = new Set<number>(arr);
+  const result: number[] = [];
+
+  allNums.forEach(num => {
+    if (!nums.has(num)) {
+      result.push(num);
+    }
+  });
+
+  result.sort((a, b) => a - b);
+  return result;
 }
 
-console.log(calculate('1+2'));
+console.log(result([10, 3]));
+
+
+
 
 
 
