@@ -15,7 +15,7 @@ class MemberService {
     /*  SPA */
 
     public async getRestaurant(): Promise<Member> {
-        const result = this.memberModel.findOne({ memberType: MemberType.RESTAURANT }).exec()
+        const result = this.memberModel.findOne({ memberType: MemberType.RESTAURANT }).lean().exec()
         if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND)
 
         return result
