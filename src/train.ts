@@ -1,28 +1,23 @@
 /* 
-X-TASK:
+Y-TASK:
 
- Shunday function yozing, uni object va string parapetrlari bolsin. Function string parametri object ichida necha marotaba takrorlanganligini qaytarsin (nested object bolsa ham sanasin)
- MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+ Shunday function yozing, uni 2 ta array parapetri bolsin. Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin
+ MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
 
 */
-const countOccurrences = (obj: Record<string, any>, str: string): number => {
-  let keys = 0
-  const stack = [obj];
+const findIntersection = (arr1: number[], arr2: number[]): number[] => {
+  const result = []
 
-  while (stack.length) {
-    const popedObj = stack.pop()
-    for (let key in popedObj) {
-      if (key === str) keys++
-      if (typeof popedObj[key] === "object" && popedObj[key] !== null) {
-        stack.push(popedObj[key])
-      }
+  for (const num of arr1) {
+    if (arr2.includes(num)) {
+      result.push(num)
     }
   }
-  return keys
+  return result
 }
 
 
-console.log(countOccurrences({ model: 'Bugatti', steer: { model: 'HANKOOK', size: 30, type: {model: '34'}} }, 'model'));
+console.log(findIntersection([1, 2, 3,0], [3, 2, 0]));
 
 
 
