@@ -17,7 +17,7 @@ const findIntersection = (arr1: number[], arr2: number[]): number[] => {
 }
 
 
-console.log(findIntersection([1, 2, 3,0], [3, 2, 0]));
+console.log(findIntersection([1, 2, 3, 0], [3, 2, 0]));
 
 
 
@@ -36,3 +36,7 @@ console.log(findIntersection([1, 2, 3,0], [3, 2, 0]));
         backend
         database
 */
+
+
+
+
