@@ -5,7 +5,7 @@ Y-TASK:
  MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
 
 */
-const findIntersection = (arr1: number[], arr2: number[]): number[] => {
+/* const findIntersection = (arr1: number[], arr2: number[]): number[] => {
   const result = []
 
   for (const num of arr1) {
@@ -17,7 +17,7 @@ const findIntersection = (arr1: number[], arr2: number[]): number[] => {
 }
 
 
-console.log(findIntersection([1, 2, 3, 0], [3, 2, 0]));
+console.log(findIntersection([1, 2, 3, 0], [3, 2, 0])); */
 
 
 
@@ -38,5 +38,4 @@ console.log(findIntersection([1, 2, 3, 0], [3, 2, 0]));
 */
 
 
-
-
+const students = ["Max"]
