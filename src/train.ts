@@ -1,20 +1,17 @@
 /* 
-ZD-TASK:
+ZE-TASK:
 
-Shunday function yozing, uni number, array va number parametrlari bolsin va berilgan 1-parametr numberga teng indexni array ichidan topib 3-parametrdagi raqam bilan almashtirib yangilangan arrayni qaytarsin
-MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
+Shunday function yozing, uni  string parametri bolsin. String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
+MASALAN: removeDuplicate('stringg') return 'string'
 
 */
 
-const changeNumberInArray = (num1: number, arr: number[], num2: number): number[] => {
-
-  arr[num1] = num2
-
-  return arr
+const removeDuplicate = (str: string) => {
+ return [...new Set(str)].join('')
 }
 
 
-console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
+console.log(removeDuplicate('stringg'));
 
 
 /* Project Standards
