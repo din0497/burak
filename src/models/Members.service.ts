@@ -42,7 +42,7 @@ class MemberService {
         const member = await this.memberModel
             .findOne(
                 { memberNick: input.memberNick, memberStatus: { $ne: MemberStatus.DELETE } },
-                { memberNick: 1, memberPassword: 1, memberStatus: 1 }
+                { memberNick: 1, memberPassword: 1, memberStatus: 1, memberDesc: 1}
             ).exec();
 
 
@@ -81,6 +81,7 @@ class MemberService {
         input: MemberUpdateInput
     ): Promise<Member> {
         const memberId = shapeIntoMongooseObjectId(member._id)
+        
         const result = await this.memberModel.findOneAndUpdate({ _id: memberId }, input, { new: true }).exec()
 
         if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED)
